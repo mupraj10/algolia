@@ -26,3 +26,12 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+.search-box {
+  margin: 1em 1em 3em;
+  width: calc(100% - 2em);
+  padding: 1em;
+  border: 1px solid #ccc;
+  border-radius: 2px;
+  box-sizing: border-box;
+}
