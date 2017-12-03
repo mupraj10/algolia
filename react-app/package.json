@@ -4,7 +4,7 @@
   "private": true,
   "dependencies": {
     "algoliasearch": "^3.24.7",
-    "chalk": "^2.3.0",
+    "algoliasearch-helper": "^2.23.0",
     "csvjson": "^5.0.0",
     "fast-csv": "^2.4.1",
     "react": "^16.2.0",
