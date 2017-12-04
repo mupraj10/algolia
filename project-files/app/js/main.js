@@ -1,16 +1,24 @@
 //algolia 
-
-// var algoliasearch = require('algoliasearch');
-// var algoliasearchHelper = require('algoliasearch-helper');
+ 
 
 const applicationID = 'BYAMNN0H16'
 const apiKey = '75a10d692eba6953c2c798c1c63df046'
 
 const indexName = 'restaurants'
-const facets = {facets:['food_type', 'stars_count', 'acceptable_payments']}
+const options = {
+//options to sort from
+facets:['stars_count', 'acceptable_payments'],
+//since we want the search to be food_type specific
+disjunctiveFacets: ['food_type'],
+//restrict the number of facets shown
+maxValuesPerFacet: 7,
+//can add in location by IP as backup 
+    // aroundLatLngViaIP: true
+}
+
 
 const client = algoliasearch(applicationID, apiKey);
-const helper = algoliasearchHelper(client, indexName, facets);
+const helper = algoliasearchHelper(client, indexName, options);
 
 //start by getting results of location
 if (navigator.geolocation) {
@@ -24,10 +32,6 @@ function applyLocation(position) {
 
     console.log('Searching at these coordinates:', location);
     helper.setQueryParameter("aroundLatLng", location).search();
-    helper.on("result", content => {
-        renderFacetList(content);
-        renderHits(content);
-    });
   }
 
   // error handler but if customer declines the search is set to NYC
@@ -35,10 +39,6 @@ function applyLocation(position) {
     console.log("Defaulting location to NYC");
     const nycCoords = "40.7128, 74.0060";
     helper.setQueryParameter("aroundLatLng", nycCoords).search();
-    helper.on("result", content => {
-        renderFacetList(content);
-        renderHits(content);
-    });
   }
 
 //  input search as you type
@@ -46,6 +46,16 @@ function applyLocation(position) {
     helper.setQuery($(this).val())
           .search();
   });
+
+ 
+  //combine the helper.on function for all calls 
+  helper.on("result", content => {
+      console.log(content); 
+    renderFoodFacetList(content, '#food-list', 'food_type');
+    renderFacetList(content, '#payment-list', 'acceptable_payment');
+    renderHits(content);
+    renderStats(content);
+});
 
 
 function renderHits(content) {
@@ -64,7 +74,6 @@ function renderHits(content) {
       });
     });
   }
-  
 
   
 $('#facet-list').on('click', 'input[type=checkbox]', function(e) {
@@ -86,7 +95,6 @@ function renderFacetList(content) {
     });
   });
 }
-
 
 
 helper.search();
