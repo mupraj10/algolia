@@ -16,8 +16,8 @@ class App extends Component {
   }
 
   applyLocation(position) {
-    const location = `${position.coords.longitude}, ${
-      position.coords.latitude
+    const location = `${position.coords.latitude}, ${
+      position.coords.longitude
     }`;
     // console.log(location);
     helper.setQueryParameter("aroundLatLng", location).search();
@@ -68,7 +68,22 @@ class App extends Component {
           placeholder={"Search for Restaurants by Name, Cuisine, Location"}
           />
         </div>
-        {hits && hits.map(hit => <h2 key={Math.random()}>{hit.name}</h2>)}
+        {hits && hits.map(hit => 
+          <div key={Math.random()}>
+          <img src={hit.image_url}/>
+          <h2>{hit.name}</h2>
+          <div className='stars'> 
+          <span>{hit.stars_count}</span>
+          <span> ({hit.reviews_count} Reviews) </span>
+          </div>
+          <div className='more-info'>
+          <span> {hit.food_type} | {hit.neighborhood} | {hit.price_range}</span>
+          </div>
+        
+
+          </div>
+          
+        )}
       </div>
     );
   }

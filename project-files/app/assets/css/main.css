@@ -1,0 +1,36 @@
+/* line 1, app/assets/scss/main.scss */
+.search-box {
+  background-color: #31678b; }
+
+/* line 5, app/assets/scss/main.scss */
+#facet-list,
+#container {
+  max-width: 150px;
+  width: 100%;
+  float: left;
+  padding: 0 1em;
+  margin: 0;
+  list-style: none; }
+
+/* line 15, app/assets/scss/main.scss */
+#facet-list li {
+  padding: 6px 0;
+  border-bottom: 1px solid #ccc; }
+
+/* line 19, app/assets/scss/main.scss */
+#facet-list li input {
+  margin-right: 6px; }
+
+/* line 23, app/assets/scss/main.scss */
+#container {
+  max-width: calc(100% - 150px - 4em); }
+
+/* line 26, app/assets/scss/main.scss */
+#container li {
+  padding: 8px 0; }
+
+/* line 30, app/assets/scss/main.scss */
+#container em {
+  background: yellow; }
+
+/*# sourceMappingURL=../../../scss */
