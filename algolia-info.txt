@@ -1,9 +1,0 @@
-
-Import records into your index
-- An index is an entity within Algolia where you import the data you want to search (indexing) and perform queries against (search).
-
-//searching 
-
-- hit => raw results 
-- hit._highlightResult.____. => highlightResult
-- 

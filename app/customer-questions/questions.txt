@@ -1,0 +1,25 @@
+Question 1: Hello,
+
+I'm new to search engines, and there are a lot of concepts I'm not educated on. To make my onboarding smoother, it'd help if you could provide me with some definitions of the following concepts:
+
+Records
+Indexing
+I'm also struggling with understanding what types of metrics would be useful to include in the "Custom Ranking."
+
+Cheers, George
+---
+Answer:
+
+Hi George, 
+
+Welcome to Algolia and the world of search. My name is Maggy and I would love to help you get setup and answer any questions you have during this process. 
+
+So to start off, getting to understand how search works at Algolia, we should start with getting familiar with the idea of an index.
+
+An index at Algolia is the records or data that is stored in a group. So think of it this way, if had data about recipes, with the categories .... We can store that information here at Algolia in an index called "recipes", that way when we know we are referring to records of recipes you provided us. Therefore, records is just data. 
+Moving on to indexing, it is act of editing an index, which means adding, updating and clearing the index we have at Algolia. So say one of the recipes now needs 2.5 hours of prep time instead of 2, this would be indexing. Also, if you decided you longer wanted 'pies' to be included that too would be indexing. 
+
+For more information, our site has great reference documentation to look at here () and if you find anything confusing, feel free to shoot me an email back. 
+
+Moving on to custom ranking,
+

@@ -13,14 +13,14 @@ const applicationId = 'BYAMNN0H16';
 const apiKey = 'df7062298c712bb60acc38d2ecfdee8c';
 
 const client = algoliasearch(applicationId, apiKey);
-const index = client.initIndex('test');
+const index = client.initIndex('restaurants');
 
 //import helper function
 const updatePaymentOptions = require('./helperfunc');
 
 //converting CSV data into string for module
 const csvData = fs.readFileSync(
-  path.join(__dirname, 'restaurants_info_test.csv'),
+  path.join(__dirname, 'restaurants_info.csv'),
   { encoding: 'utf8' }
 );
 
@@ -30,26 +30,39 @@ const options = {
 };
 
 //converting string into array of objects
-const formattedData = csvjson.toObject(csvData, options);
+const formattedCSV = csvjson.toObject(csvData, options);
 
 // see the formated csv data
 // console.log(formattedData);
 
+//adjust the csv data to implement a new stars feature to get only 6 options
+const updatedCSV = [];
+formattedCSV.forEach(place => {
+  let adjusted_stars = Math.round(+place.stars_count);
+  const newPlace = Object.assign({}, place, {adjusted_stars})
+  updatedCSV.push(newPlace);
+})
+
+//see the updated CSV
+//console.log(updatedCSV);
+
+
+
 // accessing json data in this file
 const jsonData = JSON.parse(
-  fs.readFileSync(path.join(__dirname, 'restaurants_list_test.json'), {
+  fs.readFileSync(path.join(__dirname, 'restaurants_list.json'), {
     encoding: 'utf8'
   })
 );
 
-//see the json data
-// console.log('json data', jsonData)
+
 
 // manipulate the JSON data
+// to remove the payment methods and stars using helper functions
+const updatedJson = updatePaymentOptions(jsonData);
 
-// to remove the payment methods and change to discover using helper functions
-const updatedJson = updatePaymentOptions(jsonData, { log: true });
-// change the stars?
+
+
 
 const settings = {
   searchableAttributes: [
@@ -62,7 +75,7 @@ const settings = {
     'state',
     'neighborhood'
   ],
-  attributesForFaceting: ['food_type', 'stars_count', 'acceptable_payments']
+  attributesForFaceting: ['food_type', 'adjusted_stars', 'acceptable_payments']
 };
 
 //setting the search settings
@@ -73,13 +86,13 @@ index.setSettings(settings, err => {
 });
 
 // add  CSV data to algolia index
-index.addObjects(formattedData, (err, content) => {
+index.addObjects(updatedCSV, (err, content) => {
   !err
     ? console.log(
         `Successfully added ${chalk.red('CSV')} data into algolia ${chalk.cyan(
           index.indexName
         )} index:`,
-        content
+        content.objectIDs.length
       )
     : console.log(chalk.red(err));
 });
@@ -91,7 +104,7 @@ index.partialUpdateObjects(updatedJson, (err, content) => {
         `Successfully updated with ${chalk.red(
           'JSON'
         )} data into algolia ${chalk.cyan(index.indexName)} index:`,
-        content.objectIDs
+        content.objectIDs.length
       )
     : console.log(chalk.red(err));
 });
