@@ -1,36 +1,83 @@
-/* line 1, app/assets/scss/main.scss */
-.search-box {
-  background-color: #31678b; }
+/* line 2, app/assets/scss/main.scss */
+* {
+  box-sizing: border-box; }
 
-/* line 5, app/assets/scss/main.scss */
-#facet-list,
-#container {
-  max-width: 150px;
-  width: 100%;
-  float: left;
-  padding: 0 1em;
-  margin: 0;
-  list-style: none; }
+/* line 6, app/assets/scss/main.scss */
+body {
+  background: url("../../../resources/graphics/background.png"); }
+
+/* line 10, app/assets/scss/main.scss */
+.inner-section {
+  padding: 60px 120px 120px 120px; }
 
 /* line 15, app/assets/scss/main.scss */
-#facet-list li {
-  padding: 6px 0;
-  border-bottom: 1px solid #ccc; }
+.contents {
+  display: flex;
+  background-color: white; }
 
-/* line 19, app/assets/scss/main.scss */
-#facet-list li input {
-  margin-right: 6px; }
+/* line 21, app/assets/scss/main.scss */
+.search-box {
+  background-color: #31678b;
+  padding: 15px;
+  border-radius: 5px;
+  box-shadow: 0 2px 3px rgba(10, 10, 10, 0.1), 0 0 0 1px rgba(10, 10, 10, 0.1); }
 
-/* line 23, app/assets/scss/main.scss */
-#container {
-  max-width: calc(100% - 150px - 4em); }
+/* line 28, app/assets/scss/main.scss */
+.sidebar {
+  padding: 20px;
+  width: 25%;
+  border-right: 1px solid gray; }
 
-/* line 26, app/assets/scss/main.scss */
-#container li {
-  padding: 8px 0; }
+/* line 34, app/assets/scss/main.scss */
+.facet-list {
+  list-style: none;
+  display: inline-block; }
 
-/* line 30, app/assets/scss/main.scss */
-#container em {
-  background: yellow; }
+/* line 38, app/assets/scss/main.scss */
+.facet-list div {
+  padding-left: 12px; }
+
+/* line 41, app/assets/scss/main.scss */
+.facet-list td {
+  padding: 6px; }
+
+/* line 47, app/assets/scss/main.scss */
+.facet-list .active .facet-name {
+  border-radius: 5px 0 0 5px;
+  background-color: pink; }
+
+/* line 51, app/assets/scss/main.scss */
+.facet-list .active .facet-count {
+  border-radius: 0 5px 5px 0;
+  background-color: pink; }
+
+/* line 55, app/assets/scss/main.scss */
+.facet-list .active .facet-payment {
+  border-radius: 5px;
+  background-color: pink; }
+
+/* line 63, app/assets/scss/main.scss */
+.results {
+  padding-top: 20px;
+  max-width: 75%; }
+
+/* line 68, app/assets/scss/main.scss */
+.stats-box {
+  padding-bottom: 10px; }
+
+/* line 72, app/assets/scss/main.scss */
+.hit {
+  display: flex;
+  padding: 20px; }
+
+/* line 77, app/assets/scss/main.scss */
+.hit-image {
+  border-radius: 5px;
+  height: 90px;
+  width: 90px; }
+
+/* line 83, app/assets/scss/main.scss */
+.stars-count {
+  height: 20px; }
 
 /*# sourceMappingURL=../../../scss */
