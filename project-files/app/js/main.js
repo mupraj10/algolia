@@ -63,14 +63,25 @@ helper.on("result", content => {
 });
 
 
- // making the facet list responsive and things
+ // making the facet list responsivs
 facetsList.forEach(facet => {
-  $(facet.html_tag).on("click", "tr", function(evt) {
+  $(facet.html_tag).on("click", "tr", function (evt){
     const facetValue = $(this).data("facet");
-
     helper.toggleFacetRefinement(facet.name, facetValue);
     helper.search();
   });
 });
 
+//tried to implement a back button
+// const goBackButton = $('<button>').html('Go Back!').attr('id', 'go-back').attr('class', 'go-back');
+
+//renders next 3 options and adds button
+$('#show-more').on('click', () =>{
+  helper.nextPage().search();
+  // $('.buttons').append(goBackButton);
+});
+
+
+
 helper.search();
+

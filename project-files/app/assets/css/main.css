@@ -1,76 +1,101 @@
 /* line 2, app/assets/scss/main.scss */
 * {
-  box-sizing: border-box; }
+  box-sizing: border-box;
+  font-family: Arial, "Helvetica Neue"; }
 
-/* line 6, app/assets/scss/main.scss */
+/* line 7, app/assets/scss/main.scss */
 body {
   background: url("../../../resources/graphics/background.png"); }
 
-/* line 10, app/assets/scss/main.scss */
+/* line 11, app/assets/scss/main.scss */
 .inner-section {
-  padding: 60px 120px 120px 120px; }
+  padding: 60px 120px 120px 120px;
+  max-width: auto; }
 
-/* line 15, app/assets/scss/main.scss */
+/* line 17, app/assets/scss/main.scss */
 .contents {
   display: flex;
   background-color: white; }
 
-/* line 21, app/assets/scss/main.scss */
+/* line 23, app/assets/scss/main.scss */
 .search-box {
   background-color: #31678b;
   padding: 15px;
   border-radius: 5px;
   box-shadow: 0 2px 3px rgba(10, 10, 10, 0.1), 0 0 0 1px rgba(10, 10, 10, 0.1); }
 
-/* line 28, app/assets/scss/main.scss */
+/* line 29, app/assets/scss/main.scss */
+.input {
+  align-items: center;
+  border: 1px solid transparent;
+  border-radius: 3px;
+  display: inline-flex;
+  font-size: 1rem;
+  height: 2.25em;
+  justify-content: flex-start;
+  line-height: 1.5;
+  padding: 1px;
+  position: relative;
+  vertical-align: top;
+  background-color: #fff;
+  border-color: #dbdbdb;
+  color: #363636;
+  box-shadow: inset 0 1px 2px rgba(10, 10, 10, 0.1);
+  max-width: 100%;
+  width: 100%; }
+
+/* line 50, app/assets/scss/main.scss */
 .sidebar {
-  padding: 30px;
+  padding: 20px;
   width: 25%;
   border-right: 1px solid gray; }
 
-/* line 34, app/assets/scss/main.scss */
+/* line 57, app/assets/scss/main.scss */
 .facet-list {
   list-style: none;
-  display: inline-block; }
+  display: inline-block;
+  overflow: auto; }
 
-/* line 38, app/assets/scss/main.scss */
+/* line 62, app/assets/scss/main.scss */
 .facet-list div {
   padding-left: 12px; }
 
-/* line 41, app/assets/scss/main.scss */
+/* line 65, app/assets/scss/main.scss */
 .facet-list td {
   padding: 6px; }
 
-/* line 47, app/assets/scss/main.scss */
+/* line 71, app/assets/scss/main.scss */
 .facet-list .active .facet-name {
   border-radius: 5px 0 0 5px;
-  background-color: pink; }
+  background-color: #6392a8; }
 
-/* line 51, app/assets/scss/main.scss */
+/* line 75, app/assets/scss/main.scss */
 .facet-list .active .facet-count {
   border-radius: 0 5px 5px 0;
-  background-color: pink; }
+  background-color: #6392a8; }
 
-/* line 55, app/assets/scss/main.scss */
+/* line 79, app/assets/scss/main.scss */
 .facet-list .active .facet-payment {
   border-radius: 5px;
-  background-color: pink; }
+  background-color: #6392a8; }
 
-/* line 63, app/assets/scss/main.scss */
+/* line 86, app/assets/scss/main.scss */
+.stars-count {
+  height: 20px; }
+
+/* line 91, app/assets/scss/main.scss */
 .results {
-  padding-top: 20px;
-  padding-left: 20px;
   max-width: 75%; }
 
-/* line 69, app/assets/scss/main.scss */
+/* line 95, app/assets/scss/main.scss */
 .stats-box {
-  padding-bottom: 10px; }
+  padding-top: 20px; }
 
-/* line 76, app/assets/scss/main.scss */
+/* line 99, app/assets/scss/main.scss */
 .hit {
-  padding: 30px; }
+  padding-bottom: 70px; }
 
-/* line 80, app/assets/scss/main.scss */
+/* line 104, app/assets/scss/main.scss */
 .hit-image {
   border-radius: 5px;
   height: 90px;
@@ -78,8 +103,46 @@ body {
   float: left;
   margin-right: 20px; }
 
-/* line 90, app/assets/scss/main.scss */
-.stars-count {
-  height: 20px; }
+/* line 111, app/assets/scss/main.scss */
+.hit-title {
+  font-size: 17px; }
+
+/* line 115, app/assets/scss/main.scss */
+.hit-stars-box {
+  font-weight: 10px;
+  display: flex;
+  padding: 10px; }
+
+/* line 121, app/assets/scss/main.scss */
+.hit-stars-box span {
+  padding-left: 10px; }
+
+/* line 125, app/assets/scss/main.scss */
+.hit-stars {
+  height: 15px;
+  display: flex; }
+
+/* line 130, app/assets/scss/main.scss */
+.hit-style {
+  font-size: 14px; }
+
+/* line 133, app/assets/scss/main.scss */
+.buttons {
+  text-align: center; }
+
+/* line 137, app/assets/scss/main.scss */
+.show-more {
+  padding: 15px 40px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 10px; }
+
+@media only screen and (max-width: 800px) {
+  /* For mobile phones: */
+  /* line 154, app/assets/scss/main.scss */
+  .results {
+    width: 100%; } }
 
 /*# sourceMappingURL=../../../scss */

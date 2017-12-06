@@ -9,8 +9,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- Stylesheets CDN -->
   <link rel="stylesheet" href="app/assets/css/main.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.1/css/bulma.min.css">
- 
+  <link href="https://fonts.googleapis.com/css?family=Cardo" rel="stylesheet">
+  
   
 </head>
 
@@ -31,11 +31,11 @@
         <!-- sidebar for facets -->
         <div id="facet-list" class='facet-list'>
 
-          <h5> Cuisine/Food Type</h5>
+          <h3> Cuisine/Food Type</h3>
           <table id='food-list'></table>
-          <h5> Rating </h5>
+          <h3> Rating </h3>
           <div id="stars-list"></div>
-          <h5> Payment Options</h5>
+          <h3> Payment Options</h3>
           <div id="cc-list"></div>
 
         </div>
@@ -43,11 +43,16 @@
 
       <!-- container for results -->
       <div class='results'>
-        <div class='stats-box'> 
+       
             <ul id='stats'></ul>
-        </div>
+      
         
             <ul class='hits' id='results'></ul>
+            <div class='buttons'> 
+
+                <button id='show-more' class='show-more btn button'> Show more! </button>
+            </div>
+            
       </div>
     </div>
   </div>

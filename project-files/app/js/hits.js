@@ -6,26 +6,34 @@ function renderHits(content) {
         .attr("class", "hit-image")
         .attr("src", hit.image_url);
 
-      const name = $("<h4>")
+      const name = $("<b>")
       .html(hit._highlightResult.name.value)
       .attr('class', 'hit-title');
 
+      const starCount = hit.adjusted_stars;
+
+      
+
       const stars = $("<img>")
-      .attr('class', 'stars-count')
-      .attr("src", "../../resources/graphics/stars-plain.png");
+      .attr('class', 'hit-stars')
+      .attr("src", `../../resources/graphics/${starCount}-stars.png`);
 
       const reviews = $("<span>").html(`(${hit.reviews_count} reviews)`);
 
-      const style = $("<p>").html(
+      const starsBox = $('<div>')
+      .attr('class', 'hit-stars-box')
+      .append(stars)
+      .append(reviews);
+  
+      const style = $("<span>").html(
         `${hit.food_type} | ${hit.neighborhood} | ${hit.price_range}`
-      );
+      ).attr('class', 'hit-style')
 
       const place = $("<div>")
         .attr("class", "hit")
         .append(image)
         .append(name)
-        .append(stars)
-        .append(reviews)
+        .append(starsBox)
         .append(style);
 
       return place;

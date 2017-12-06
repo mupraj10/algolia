@@ -5,14 +5,20 @@ function renderStats(content){
     const nbHits = content.nbHits;
     const processingTime = (content.processingTimeMS / 1000);
 
-    $('#stats').html( ()=>{
-        return ( `<div class='stats-found'> 
-        <span>${nbHits} results found</span>
-        <span className=''> in ${processingTime} seconds </span>
-        </div>`
-        )
+    $('#stats').html( () => {
+        const numHits = $('<b>')
+                        .html(`${nbHits} results found`)
+                        .attr('class', 'stats-found');
+
+        const seconds = $('<span>')
+                        .html(` in ${processingTime} seconds`)
+                        .attr('class', 'stats-seconds');
+
+        const stats = $('<div>')
+                      .attr('class', 'stats-box')
+                      .append(numHits)
+                      .append(seconds)
+        return stats;
     })
 }
-
-
 
