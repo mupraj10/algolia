@@ -3,6 +3,9 @@
   box-sizing: border-box;
   font-family: Arial, "Helvetica Neue";
 }
+p{
+  margin:0 0 .25em 0;
+}
 //add font here
 body{
   background: url('../../../resources/graphics/background.png');
@@ -10,7 +13,6 @@ body{
 
 .inner-section{
   padding:60px 120px 120px 120px;
-  max-width: auto;
 
 }
 
@@ -42,16 +44,20 @@ body{
   border-color: #dbdbdb;
   color: #363636;
   box-shadow: inset 0 1px 2px rgba(10,10,10,.1);
-  max-width: 100%;
   width: 100%;
-
 }
 
 .sidebar {
   padding: 20px;
-  width:25%;
+  width: 200px;
   border-right:1px solid gray;
   // float:left;
+  h3{
+    font-size: 15px;
+  }
+  tr{
+    font-size: 15px;
+  }
 }
 
 .facet-list {
@@ -89,15 +95,19 @@ body{
 
 
 .results{
-  max-width: 75%;
+  padding: 20px 30px;
+  width:100%;
 }
 
 .stats-box{
-  padding-top:20px
+  padding: 20px;
+  padding-left:0px;
 }
 
 .hit {
-  padding-bottom: 70px;
+  padding-bottom: 35px;
+  display: flex;
+
 }
 
 
@@ -105,31 +115,25 @@ body{
   border-radius: 5px;
   height:90px;
   width:90px;
-  float:left;
   margin-right:20px;
 }
+
 .hit-title{
   font-size: 17px;
+  margin: 0 0 .25em 0;
 }
 
-.hit-stars-box{
-  font-weight:10px;
-  display: flex;
-  padding:10px;
-}
 
-.hit-stars-box span{
-  padding-left:10px;
-}
 
 .hit-stars{
   height:15px;
-  display:flex;
+  margin-right:10px
 }
 
-.hit-style{
-  font-size:14px;
-}
+// .hit-style{
+//   font-size:14px;
+// }
+
 .buttons{
   text-align: center;
 }
@@ -151,8 +155,23 @@ body{
 
 @media only screen and (max-width:800px) {
   /* For mobile phones: */
-  .results {
-    width:100%;
+
+  .inner-section{
+    padding: 0;
+  }
+
+  .contents{
+    display:block;
+  }
+  
+  .sidebar{
+    border-right:none;
+    border-bottom: 1px solid gray;
+    width:100%
+  }
+
+  .stars-count{
+    height: 30px;
   }
 }
 
