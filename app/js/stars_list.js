@@ -18,7 +18,7 @@ function renderStarsList(facetType, html_tag, content) {
             //adding in the stars images
             const stars = $("<img>")
               .attr('class', 'stars-count')
-              .attr("src", `../../resources/graphics/${facet.name}-stars.png`);
+              .attr("src", `resources/graphics/${facet.name}-stars.png`);
 
             //checks if the value is already selected or not
             const facetValueClass = facet.isRefined ? "active" : "";

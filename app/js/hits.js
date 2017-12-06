@@ -16,7 +16,7 @@ function renderHits(content) {
 
       const stars = $("<img>")
       .attr('class', 'hit-stars')
-      .attr("src", `../../resources/graphics/${starCount}-stars.png`);
+      .attr("src", `resources/graphics/${starCount}-stars.png`);
 
       const reviews = $("<span>").html(`(${hit.reviews_count} reviews)`);
 
