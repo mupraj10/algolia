@@ -16,7 +16,7 @@ function renderHits(content) {
 
       const reviews = $("<span>").html(`(${hit.reviews_count} reviews)`);
 
-      const style = $("<div>").html(
+      const style = $("<p>").html(
         `${hit.food_type} | ${hit.neighborhood} | ${hit.price_range}`
       );
 

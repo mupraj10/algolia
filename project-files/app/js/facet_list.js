@@ -56,8 +56,6 @@ function renderFacetList(facetType, html_tag, content) {
     });
   }
 
-
-
     return facetsValuesList;
   });
 }

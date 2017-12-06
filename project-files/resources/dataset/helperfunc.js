@@ -6,6 +6,7 @@ function updatePaymentOptions(jsonObj, log) {
   const updatedJson = [];
   //iterate through the JSON array for each place
   jsonObj.forEach(place => {
+
     const acceptablePayments = ["AMEX", "MasterCard", "Discover", "Visa"];
     const replacingPayments = ["Diners Club", "Carte Blanche"];
 
@@ -24,24 +25,12 @@ function updatePaymentOptions(jsonObj, log) {
 
         //if discover is not there add it in
         if (!updatedPayments.includes("Discover")) {
-          //   console.log(chalk.green('adding in Discover'));
+          
           updatedPayments.push("Discover");
         }
-
-        //   console.log(
-        //     "foundCard",
-        //     chalk.blue(cardType),
-        //     "at position",
-        //     chalk.red(positionInArray),
-        //     "removed",
-        //     chalk.magenta(removed),
-        //     "new payment options",
-        //     chalk.red(updatedPayments)
-        //   );
       }
       //if does not have Diners club or Carte Blanche it is just a copy same
-      //adding in filtering to make sure only those options
-
+      //adding in filtering to make sure only those options are used
       updatedPayments = updatedPayments.filter(card => acceptablePayments.includes(card));
       return updatedPayments;
     });
@@ -65,7 +54,5 @@ function updatePaymentOptions(jsonObj, log) {
   return updatedJson;
 }
 
-// updatePaymentOptions(testJson);
- 
-//figure out how to export function
+
 module.exports = updatePaymentOptions;

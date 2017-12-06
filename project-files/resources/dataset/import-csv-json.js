@@ -30,10 +30,23 @@ const options = {
 };
 
 //converting string into array of objects
-const formattedData = csvjson.toObject(csvData, options);
+const formattedCSV = csvjson.toObject(csvData, options);
 
 // see the formated csv data
 // console.log(formattedData);
+
+//adjust the csv data to implement a new stars feature to get only 6 options
+const updatedCSV = [];
+formattedCSV.forEach(place => {
+  let adjusted_stars = Math.round(+place.stars_count);
+  const newPlace = Object.assign({}, place, {adjusted_stars})
+  updatedCSV.push(newPlace);
+})
+
+//see the updated CSV
+//console.log(updatedCSV);
+
+
 
 // accessing json data in this file
 const jsonData = JSON.parse(
@@ -42,14 +55,14 @@ const jsonData = JSON.parse(
   })
 );
 
-//see the json data
-// console.log('json data', jsonData)
+
 
 // manipulate the JSON data
-
-// to remove the payment methods and change to discover using helper functions
+// to remove the payment methods and stars using helper functions
 const updatedJson = updatePaymentOptions(jsonData);
-// change the stars?
+
+
+
 
 const settings = {
   searchableAttributes: [
@@ -62,7 +75,7 @@ const settings = {
     'state',
     'neighborhood'
   ],
-  attributesForFaceting: ['food_type', 'stars_count', 'acceptable_payments']
+  attributesForFaceting: ['food_type', 'adjusted_stars', 'acceptable_payments']
 };
 
 //setting the search settings
@@ -73,7 +86,7 @@ index.setSettings(settings, err => {
 });
 
 // add  CSV data to algolia index
-index.addObjects(formattedData, (err, content) => {
+index.addObjects(updatedCSV, (err, content) => {
   !err
     ? console.log(
         `Successfully added ${chalk.red('CSV')} data into algolia ${chalk.cyan(
