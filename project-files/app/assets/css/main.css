@@ -59,24 +59,26 @@ body {
 /* line 63, app/assets/scss/main.scss */
 .results {
   padding-top: 20px;
+  padding-left: 20px;
   max-width: 75%; }
 
-/* line 68, app/assets/scss/main.scss */
+/* line 69, app/assets/scss/main.scss */
 .stats-box {
   padding-bottom: 10px; }
 
-/* line 72, app/assets/scss/main.scss */
+/* line 76, app/assets/scss/main.scss */
 .hit {
-  display: flex;
-  padding: 20px; }
+  padding: 30px; }
 
-/* line 77, app/assets/scss/main.scss */
+/* line 80, app/assets/scss/main.scss */
 .hit-image {
   border-radius: 5px;
   height: 90px;
-  width: 90px; }
+  width: 90px;
+  float: left;
+  margin-right: 20px; }
 
-/* line 83, app/assets/scss/main.scss */
+/* line 90, app/assets/scss/main.scss */
 .stars-count {
   height: 20px; }
 

@@ -7,7 +7,8 @@ function renderHits(content) {
         .attr("src", hit.image_url);
 
       const name = $("<h4>")
-      .html(hit._highlightResult.name.value);
+      .html(hit._highlightResult.name.value)
+      .attr('class', 'hit-title');
 
       const stars = $("<img>")
       .attr('class', 'stars-count')
@@ -15,7 +16,7 @@ function renderHits(content) {
 
       const reviews = $("<span>").html(`(${hit.reviews_count} reviews)`);
 
-      const style = $("<span>").html(
+      const style = $("<div>").html(
         `${hit.food_type} | ${hit.neighborhood} | ${hit.price_range}`
       );
 

@@ -62,6 +62,7 @@ body{
 
 .results{
   padding-top: 20px;
+  padding-left:20px;
   max-width: 75%;
 }
 
@@ -69,20 +70,27 @@ body{
   padding-bottom: 10px;
 }
 
-.hit{
-  display: flex;
-  padding: 20px;
+
+
+
+.hit {
+  padding: 30px;
 }
 
 .hit-image{
   border-radius: 5px;
   height:90px;
   width:90px;
+  float:left;
+  margin-right:20px;
+}
+.hit-title{
+  
+}
+.stars-count{
+  height:20px;
 }
 
-.stars-count{
-  height:20px
-}
 
 // .inner-section{
 //   background: white;
