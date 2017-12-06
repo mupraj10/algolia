@@ -14,9 +14,8 @@ function renderStarsList(facetType, html_tag, content) {
 
             //creates the html list with the values
           starsList = $.map(sortedStars, facet => {
-              console.log(facet.name)
-            //actual line with the name and count
-
+    
+            //adding in the stars images
             const stars = $("<img>")
               .attr('class', 'stars-count')
               .attr("src", `../../resources/graphics/${facet.name}-stars.png`);
