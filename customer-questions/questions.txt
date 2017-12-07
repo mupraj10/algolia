@@ -9,8 +9,7 @@ I'm also struggling with understanding what types of metrics would be useful to 
 
 Cheers,
 George
----
-Answer:
+--- Answer
 
 Hi George, 
 
@@ -18,14 +17,28 @@ Welcome to Algolia and the world of search. My name is Maggy and I would love to
 
 So to start off, getting to understand how search works at Algolia, we should start with getting familiar with the idea of an index.
 
-An index at Algolia is the records or data that is stored in a group. So think of it this way, if had data about recipes, with the categories .... We can store that information here at Algolia in an index called "recipes", that way when we know we are referring to records of recipes you provided us. Therefore, records is just data. 
-Moving on to indexing, it is act of editing an index, which means adding, updating and clearing the index we have at Algolia. So say one of the recipes now needs 2.5 hours of prep time instead of 2, this would be indexing. Also, if you decided you longer wanted 'pies' to be included that too would be indexing. 
+An index is an entity in Algolia that stores groups of data or records. It is in this index you are able to perform your search. So think of it this way, if had many recipes we can store that information here at Algolia in an index called “george-recipes", that way you know where your data is within Algolia. If you familiar with databases then you can think of an index similar to a table in a database. 
 
-For more information, our site has great reference documentation to look at here () and if you find anything confusing, feel free to shoot me an email back. 
+Records are the items stored within an index. Returning to our recipe example, the records would be the individual recipes within the george-recipe index. This is again similar to the row in a table found in a database. Each record is JSON object, this means that each attribute of the record is written in readable language and can be used to filter and display.
 
-Moving on to custom ranking,
+Once you have created an index you may need to edit or change individual records. Here at Algolia we call this process indexing and it specifically means adding, updating, and clearing of index information. 
+For example if a recipe calls for 2.5 hours of prep time and you changed it to 2 hours, or if you decided you no you longer wanted ’Breakfast casserole' to be included and removed it, this process would be called indexing. 
 
+The next step of the process involves using the custom ranking metrics.  After you have conducted a search using Algolia, the search results will be presented in accordance to Algolia’s defaulted ranking formula. But worry not, using the custom ranking feature you can set up the search results that best suits your business. The custom setting can used to leverage an attribute to be set to either an numerical or boolean value (true/false) dependent on another attribute .For example, we can see how popular a recipe is on your website by having it be boolean attribute and it would be dependent on how many views that recipes gets, ‘true’ is it has been viewed over 100 times and ‘false’ if not.  Moving forward with custom rankings we can make them more precise and have ways for boosting featured items as dependent on your specific business needs.
 
+For more information about how Algolia search works visit our site for some great references to look at, 
+
+Getting Started with Algolia 
+https://www.algolia.com/doc/guides/getting-started/what-is-algolia/?language=js#vocabulary, 
+
+Custom Ranking
+https://www.algolia.com/doc/guides/ranking/custom-ranking/?language=js#custom-ranking-overview. 
+
+If there are any other concepts you would like more information on or questions you have, please do not hesitate to reach out. I am here to help!
+
+Best, 
+
+Maggy 
 
 
 Question 2:
@@ -35,7 +48,24 @@ Sorry to give you the kind of feedback that I know you do not want to hear, but 
 
 Regards,
 Matt
+-- Answer
 
+Hi Matt, 
+
+Thank you for reaching out and letting us know about the new dashboard design. Here at Algolia, we are love to hear not only good and positive feedback but critical and negative feedback as it is important because it gives us transparency to see what our customers enjoy and what do not enjoy, so Thank you!  
+
+I understand that due to the new design of the dashboard, clearing and deleting indexes are a bit more difficult, I will make sure to forward this feedback to the design team so they are aware of this issue. 
+
+I would love to hear how you are currently clearing and deleting your indexes as if we can find a more convenient and quicker way to do with the current design we have up. 
+ 
+One way I have suggested to some customers to address issues with multiple indices, is once you are at the dashboard, and you click on ‘Indices’ on the left sidebar you can then click on ‘Indices’ which is left of ‘your index name’ you should lead you to a screen with all your indices, you can click ‘select all’ which will allow you to select multiple indices at once and then on the top right have the option to clear or delete the indices. I find this to be one of the efficient ways to handle multiple indices at once and hope this is helpful! 
+
+There are some other ways which would could discuss in terms of using an API via scripts if you find the way listed above as inconvenient as well. But feel free to let me know if this a path you would like to go down and we chat more about it. 
+
+I hope we found some solution to your issue, if not we will definitely get working on one for you. Please let me know if you have any more feedback or questions, I am here to help and take any feedback that helps us improve our process and a customer journey! 
+
+Best, 
+Maggy 
 
 
 Question 3:
@@ -45,3 +75,29 @@ I'm looking to integrate Algolia in my website. Will this be a lot of developmen
 
 Regards,
 Leo
+
+-- Answer
+
+Hi Leo, 
+
+Thanks for reaching out! We are excited that you looking into integrating Algolia into your website! I would be glad to walk you through the process. 
+
+There are about 3 steps to take to get you up and running with Algolia.
+
+To start off, you would begin by importing your data to an Algolia index(entity that stores groups of data or records). This can be done in several ways, if you are someone who enjoys using a graphical interface to see all the data our dashboard provides you a way to import data via drag and drop and manually typing in your data. But if you enjoy writing some code and scripts we have our JSON based REST API which has been developed for most major languages, which can make indexing simpler and easier. 
+
+Once you have imported your data once, it is up to you to manage your data by syncing it and such, which we can provide guidance if needed.
+
+After the data has been imported, the next step would be to configure and adjust your searchable attributes and custom ranking attributes. Searchable attributes will help you control your queryable attributes like all the searches someone would make on your website and these can be set by your preference or by custom ranking which will leverage Algolia’s default ranking to add business metrics to your benefit. These can again be done in either the dashboard or via our API.
+
+Now that we have imported our data and configured it the way we like, we are left with the last step, the search experience. This is the crucial part of any customer journey. This is where I believe we are the most flexible, the response returned from any query is a simple JSON filled with attributes that can be used in many ways. We have many tools such as our InstantSearch library which also can be integrated with several different front-end frameworks such as React, Vue and Angular to help make your search experience for your customers/website viewers flawless.
+
+If you would like to dive a bit deeper into the details, we can definitely schedule a time for a call. If you are interested, let me know your availability and we can go from there.
+
+I hope this information has been helpful. If you haven’t already, I would recommend signing up for our free 14 day trial (https://www.algolia.com/users/sign_up) where you can experience what Algolia is like, it is definitely nice to experience the product first hand before jumping right into buying it.
+
+Feel free to shoot me an email if you have any other questions.
+
+Best, 
+
+Maggy 
