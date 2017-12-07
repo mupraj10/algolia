@@ -1,28 +1,27 @@
-const fs = require('fs');
-const path = require('path');
-const chalk = require('chalk');
+const fs = require("fs");
+const path = require("path");
+const chalk = require("chalk");
 
 //csv converter module
-const csvjson = require('csvjson');
+const csvjson = require("csvjson");
 
 //algolia api to upload data to be indexed
-const algoliasearch = require('algoliasearch');
+const algoliasearch = require("algoliasearch");
 
 //algolia secrets
-const applicationId = 'BYAMNN0H16';
-const apiKey = 'df7062298c712bb60acc38d2ecfdee8c';
+const applicationId = "BYAMNN0H16";
+const apiKey = "df7062298c712bb60acc38d2ecfdee8c";
 
 const client = algoliasearch(applicationId, apiKey);
-const index = client.initIndex('restaurants');
+const index = client.initIndex("restaurants");
 
 //import helper function
-const updatePaymentOptions = require('./helperfunc');
+const updatePaymentOptions = require("./helperfunc");
 
 //converting CSV data into string for module
-const csvData = fs.readFileSync(
-  path.join(__dirname, 'restaurants_info.csv'),
-  { encoding: 'utf8' }
-);
+const csvData = fs.readFileSync(path.join(__dirname, "restaurants_info.csv"), {
+  encoding: "utf8"
+});
 
 //options for removing the :|,
 const options = {
@@ -39,49 +38,42 @@ const formattedCSV = csvjson.toObject(csvData, options);
 const updatedCSV = [];
 formattedCSV.forEach(place => {
   let adjusted_stars = Math.round(+place.stars_count);
-  const newPlace = Object.assign({}, place, {adjusted_stars})
+  const newPlace = Object.assign({}, place, { adjusted_stars });
   updatedCSV.push(newPlace);
-})
+});
 
 //see the updated CSV
 //console.log(updatedCSV);
 
-
-
 // accessing json data in this file
 const jsonData = JSON.parse(
-  fs.readFileSync(path.join(__dirname, 'restaurants_list.json'), {
-    encoding: 'utf8'
+  fs.readFileSync(path.join(__dirname, "restaurants_list.json"), {
+    encoding: "utf8"
   })
 );
-
-
 
 // manipulate the JSON data
 // to remove the payment methods and stars using helper functions
 const updatedJson = updatePaymentOptions(jsonData);
 
-
-
-
 const settings = {
   searchableAttributes: [
-    'name',
-    'food_type',
-    'city',
-    'area',
-    'country',
-    'postal_code',
-    'state',
-    'neighborhood'
+    "name",
+    "food_type",
+    "city",
+    "area",
+    "country",
+    "postal_code",
+    "state",
+    "neighborhood"
   ],
-  attributesForFaceting: ['food_type', 'adjusted_stars', 'acceptable_payments']
+  attributesForFaceting: ["food_type", "adjusted_stars", "acceptable_payments"]
 };
 
 //setting the search settings
 index.setSettings(settings, err => {
   !err
-    ? console.log(chalk.red('Sucessfully set settings!'))
+    ? console.log(chalk.red("Sucessfully set settings!"))
     : console.log(chalk.red(err));
 });
 
@@ -89,7 +81,7 @@ index.setSettings(settings, err => {
 index.addObjects(updatedCSV, (err, content) => {
   !err
     ? console.log(
-        `Successfully added ${chalk.red('CSV')} data into algolia ${chalk.cyan(
+        `Successfully added ${chalk.red("CSV")} data into algolia ${chalk.cyan(
           index.indexName
         )} index:`,
         content.objectIDs.length
@@ -102,17 +94,14 @@ index.partialUpdateObjects(updatedJson, (err, content) => {
   !err
     ? console.log(
         `Successfully updated with ${chalk.red(
-          'JSON'
+          "JSON"
         )} data into algolia ${chalk.cyan(index.indexName)} index:`,
         content.objectIDs.length
       )
     : console.log(chalk.red(err));
 });
 
-
 //notes
-
-//find out why csv data goes faster than json data?
 
 // headers = ['objectID','food_type','stars_count','reviews_count','neighborhood','phone_number','price_range','dining_style']
 
@@ -122,5 +111,5 @@ index.partialUpdateObjects(updatedJson, (err, content) => {
 //should be able to search by name, food_type and location(city, area)
 //filter/facetting by food_type, stars_count, acceptable_payments
 
-// from algolia website, goog to set settings before pushing the data
+// from algolia website, good to set settings before pushing the data
 // https://www.algolia.com/doc/api-reference/api-methods/set-settings/

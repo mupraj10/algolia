@@ -57,15 +57,14 @@ helper.on("result", content => {
   facetsList.forEach(facet =>
     renderFacetList(facet.name, facet.html_tag, content)
   );
-  renderStarsList('adjusted_stars', '#stars-list', content)
+  renderStarsList("adjusted_stars", "#stars-list", content);
   renderHits(content);
   renderStats(content);
 });
 
-
- // making the facet list responsivs
+// making the facet list responsivs
 facetsList.forEach(facet => {
-  $(facet.html_tag).on("click", "tr", function (evt){
+  $(facet.html_tag).on("click", "tr", function(evt) {
     const facetValue = $(this).data("facet");
     helper.toggleFacetRefinement(facet.name, facetValue);
     helper.search();
@@ -76,28 +75,28 @@ facetsList.forEach(facet => {
 // const goBackButton = $('<button>').html('Go Back!').attr('id', 'go-back').attr('class', 'go-back');
 
 //renders next 3 options and adds button
-$('#show-more').on('click', () =>{
+$("#show-more").on("click", () => {
   helper.nextPage().search();
   // $('.buttons').append(goBackButton);
 });
 
-$('#filter').on('click', () =>{
-  console.log('in on click')
-  $('.sidenav').css('width', '250px')
-  
-  helper.on("result", content => {
-    facetsList.forEach(facet =>
-      renderFacetList(facet.name, facet.html_tag, content)
-    );
-    renderStarsList('adjusted_stars', '#stars-list', content)
-  })
+$("#filter").on("click", () => {
+  console.log("in on click");
+  $(".sidenav").css("width", "250px");
 
-})
+  helper
+    .on("result", content => {
+      facetsList.forEach(facet =>
+        renderFacetList(facet.name, facet.html_tag, content)
+      );
+      renderStarsList("adjusted_stars", "#stars-list", content);
+    })
+    .search();
+});
 
-$('.closebtn').on('click', ()=> {
-  console.log('on close');
-  $('.sidenav').css('width', '0px')
-})
+$(".closebtn").on("click", () => {
+  console.log("on close");
+  $(".sidenav").css("width", "0px");
+});
 
 helper.search();
-

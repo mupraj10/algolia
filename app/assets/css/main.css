@@ -3,32 +3,32 @@
   box-sizing: border-box;
   font-family: Arial, "Helvetica Neue"; }
 
-/* line 6, app/assets/scss/main.scss */
+/* line 7, app/assets/scss/main.scss */
 p {
   margin: 0 0 .25em 0; }
 
-/* line 10, app/assets/scss/main.scss */
+/* line 12, app/assets/scss/main.scss */
 body {
   background: url("../../../resources/graphics/background.png"); }
 
-/* line 14, app/assets/scss/main.scss */
+/* line 16, app/assets/scss/main.scss */
 .inner-section {
   padding: 60px 120px 120px 120px; }
 
-/* line 19, app/assets/scss/main.scss */
+/* line 20, app/assets/scss/main.scss */
 .contents {
   display: flex;
   background-color: white;
   border-radius: 3px; }
 
-/* line 26, app/assets/scss/main.scss */
+/* line 27, app/assets/scss/main.scss */
 .search-box {
   background-color: #31678b;
   padding: 15px;
   border-radius: 5px;
   box-shadow: 0 2px 3px rgba(10, 10, 10, 0.1), 0 0 0 1px rgba(10, 10, 10, 0.1); }
 
-/* line 32, app/assets/scss/main.scss */
+/* line 34, app/assets/scss/main.scss */
 .input {
   align-items: center;
   border: 1px solid transparent;
@@ -47,73 +47,73 @@ body {
   box-shadow: inset 0 1px 2px rgba(10, 10, 10, 0.1);
   width: 100%; }
 
-/* line 51, app/assets/scss/main.scss */
+/* line 53, app/assets/scss/main.scss */
 .sidebar-active {
   display: none; }
 
-/* line 55, app/assets/scss/main.scss */
+/* line 57, app/assets/scss/main.scss */
 .sidenav {
   display: none; }
 
-/* line 59, app/assets/scss/main.scss */
+/* line 61, app/assets/scss/main.scss */
 .sidebar {
   padding: 20px;
   width: 200px;
   border-right: 1px solid gray; }
-  /* line 63, app/assets/scss/main.scss */
+  /* line 65, app/assets/scss/main.scss */
   .sidebar h3 {
     font-size: 15px; }
-  /* line 66, app/assets/scss/main.scss */
+  /* line 68, app/assets/scss/main.scss */
   .sidebar tr {
     font-size: 15px; }
 
-/* line 71, app/assets/scss/main.scss */
+/* line 73, app/assets/scss/main.scss */
 .facet-list {
   list-style: none;
   display: inline-block;
   overflow: auto; }
 
-/* line 76, app/assets/scss/main.scss */
+/* line 79, app/assets/scss/main.scss */
 .facet-list div {
   padding-left: 12px; }
 
-/* line 79, app/assets/scss/main.scss */
+/* line 83, app/assets/scss/main.scss */
 .facet-list td {
   padding: 6px; }
 
-/* line 85, app/assets/scss/main.scss */
+/* line 88, app/assets/scss/main.scss */
 .facet-list .active .facet-name {
   border-radius: 5px 0 0 5px;
   background-color: #6392a8; }
 
-/* line 89, app/assets/scss/main.scss */
+/* line 92, app/assets/scss/main.scss */
 .facet-list .active .facet-count {
   border-radius: 0 5px 5px 0;
   background-color: #6392a8; }
 
-/* line 93, app/assets/scss/main.scss */
+/* line 96, app/assets/scss/main.scss */
 .facet-list .active .facet-payment {
   border-radius: 5px;
   background-color: #6392a8; }
 
-/* line 100, app/assets/scss/main.scss */
+/* line 102, app/assets/scss/main.scss */
 .stars-count {
   height: 20px; }
 
-/* line 104, app/assets/scss/main.scss */
+/* line 106, app/assets/scss/main.scss */
 .results {
   padding: 20px 30px;
   width: 100%; }
 
-/* line 110, app/assets/scss/main.scss */
+/* line 111, app/assets/scss/main.scss */
 .filter {
   display: none; }
 
-/* line 114, app/assets/scss/main.scss */
+/* line 115, app/assets/scss/main.scss */
 .loading {
   padding: 100px; }
 
-/* line 118, app/assets/scss/main.scss */
+/* line 120, app/assets/scss/main.scss */
 .loader {
   border: 10px solid #f3f3f3;
   border-top: 10px solid #31678b;
@@ -128,17 +128,17 @@ body {
   100% {
     transform: rotate(360deg); } }
 
-/* line 132, app/assets/scss/main.scss */
+/* line 138, app/assets/scss/main.scss */
 .stats-box {
   padding: 20px;
   padding-left: 0px; }
 
-/* line 137, app/assets/scss/main.scss */
+/* line 143, app/assets/scss/main.scss */
 .hit {
   padding-bottom: 35px;
   display: flex; }
 
-/* line 143, app/assets/scss/main.scss */
+/* line 148, app/assets/scss/main.scss */
 .hit-image {
   border-radius: 5px;
   max-height: 90px;
@@ -147,33 +147,33 @@ body {
   object-fit: cover;
   margin-right: 20px; }
 
-/* line 152, app/assets/scss/main.scss */
+/* line 157, app/assets/scss/main.scss */
 .hit-title {
   font-size: 17px;
   margin: 0 0 .25em 0; }
 
-/* line 157, app/assets/scss/main.scss */
+/* line 162, app/assets/scss/main.scss */
 .hit-stars-box {
   color: #f4af72; }
-  /* line 160, app/assets/scss/main.scss */
+  /* line 164, app/assets/scss/main.scss */
   .hit-stars-box span {
     color: gray; }
 
-/* line 164, app/assets/scss/main.scss */
+/* line 169, app/assets/scss/main.scss */
 .hit-stars {
   height: 15px;
   margin-left: 10px;
   margin-right: 10px; }
 
-/* line 170, app/assets/scss/main.scss */
+/* line 175, app/assets/scss/main.scss */
 .hit-style {
   color: gray; }
 
-/* line 178, app/assets/scss/main.scss */
+/* line 179, app/assets/scss/main.scss */
 .buttons {
   text-align: center; }
 
-/* line 182, app/assets/scss/main.scss */
+/* line 183, app/assets/scss/main.scss */
 .show-more {
   padding: 15px 40px;
   text-align: center;
@@ -184,24 +184,24 @@ body {
 
 @media only screen and (max-width: 700px) {
   /* For mobile phones: */
-  /* line 196, app/assets/scss/main.scss */
+  /* line 194, app/assets/scss/main.scss */
   .inner-section {
     padding: 0; }
-  /* line 200, app/assets/scss/main.scss */
+  /* line 197, app/assets/scss/main.scss */
   .contents {
     display: block; }
-  /* line 205, app/assets/scss/main.scss */
+  /* line 200, app/assets/scss/main.scss */
   .sidebar {
     display: none; }
-  /* line 209, app/assets/scss/main.scss */
+  /* line 203, app/assets/scss/main.scss */
   .sidebar-active {
     border-right: none;
     border-bottom: 1px solid gray;
     width: 100%; }
-    /* line 214, app/assets/scss/main.scss */
+    /* line 207, app/assets/scss/main.scss */
     .sidebar-active td {
       padding: 12px 6px; }
-  /* line 219, app/assets/scss/main.scss */
+  /* line 211, app/assets/scss/main.scss */
   .sidenav {
     height: 64%;
     width: 0;
@@ -213,14 +213,14 @@ body {
     background-color: white;
     overflow-x: hidden;
     transition: 0.5s; }
-  /* line 232, app/assets/scss/main.scss */
+  /* line 223, app/assets/scss/main.scss */
   .sidenav .closebtn {
     position: absolute;
     top: 0;
     right: 25px;
     font-size: 36px;
     margin-left: 50px; }
-  /* line 240, app/assets/scss/main.scss */
+  /* line 230, app/assets/scss/main.scss */
   .filter {
     height: 15%;
     width: 100%;
@@ -228,7 +228,7 @@ body {
     display: inline-block;
     font-size: 16px;
     border-radius: 10px; }
-  /* line 249, app/assets/scss/main.scss */
+  /* line 238, app/assets/scss/main.scss */
   .stars-count {
     height: 30px; } }
 

@@ -6,7 +6,6 @@ function updatePaymentOptions(jsonObj, log) {
   const updatedJson = [];
   //iterate through the JSON array for each place
   jsonObj.forEach(place => {
-
     const acceptablePayments = ["AMEX", "MasterCard", "Discover", "Visa"];
     const replacingPayments = ["Diners Club", "Carte Blanche"];
 
@@ -25,34 +24,36 @@ function updatePaymentOptions(jsonObj, log) {
 
         //if discover is not there add it in
         if (!updatedPayments.includes("Discover")) {
-          
           updatedPayments.push("Discover");
         }
       }
       //if does not have Diners club or Carte Blanche it is just a copy same
       //adding in filtering to make sure only those options are used
-      updatedPayments = updatedPayments.filter(card => acceptablePayments.includes(card));
+      updatedPayments = updatedPayments.filter(card =>
+        acceptablePayments.includes(card)
+      );
       return updatedPayments;
     });
 
-    //maybe it customer wanted to see the logs of what changed
+    //maybe if customer wanted to see the logs of what changed
     // if(log.true){
-      //   console.log('updated', 
-      //   chalk.magenta(place.name),
-      //   "original",
-      //   chalk.red(currentPaymentOptions),
-      //   "updated and returned",
-      //   chalk.cyan(updatedPayments)
-      // );
+    //   console.log('updated',
+    //   chalk.magenta(place.name),
+    //   "original",
+    //   chalk.red(currentPaymentOptions),
+    //   "updated and returned",
+    //   chalk.cyan(updatedPayments)
+    // );
     // }
 
     //now add in JSON object a new option for acceptable_payments
-    let acceptablePaymentAdded = Object.assign({}, place, {acceptable_payments: updatedPayments});
-    updatedJson.push(acceptablePaymentAdded)
+    let acceptablePaymentAdded = Object.assign({}, place, {
+      acceptable_payments: updatedPayments
+    });
+    updatedJson.push(acceptablePaymentAdded);
   });
-//   console.log('updatedJson', updatedJson)
+  //   console.log('updatedJson', updatedJson)
   return updatedJson;
 }
-
 
 module.exports = updatePaymentOptions;

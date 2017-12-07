@@ -1,41 +1,35 @@
 function renderStarsList(facetType, html_tag, content) {
-    
-    
-      $(html_tag).html(() => {
-        //retrieves the facet values
-        const starsValues = content.getFacetValues(facetType);
-        let starsList; 
+  $(html_tag).html(() => {
+    //retrieves the facet values
+    const starsValues = content.getFacetValues(facetType);
+    let starsList;
 
-                
-        //find a way to sort the array from 0-5
-        const sortedStars = starsValues.sort( (a, b) => {
-            return parseFloat(a.name) - parseFloat(b.name)
-        })
+    //find a way to sort the array from 0-5
+    const sortedStars = starsValues.sort((a, b) => {
+      return parseFloat(a.name) - parseFloat(b.name);
+    });
 
-            //creates the html list with the values
-          starsList = $.map(sortedStars, facet => {
-  
-            
+    //creates the html list with the values
+    starsList = $.map(sortedStars, facet => {
+      //adding in the stars images
+      const stars = $("<img>")
+        .attr("class", "stars-count")
+        .attr("src", `resources/graphics/${facet.name}-stars.png`);
 
-            //adding in the stars images
-            const stars = $("<img>")
-              .attr('class', 'stars-count')
-              .attr("src", `resources/graphics/${facet.name}-stars.png`);
+      const starsTD = $("<td>").append(stars);
 
-              const starsTD = $('<td>').append(stars)
+      //checks if the value is already selected or not
+      const facetValueClass = facet.isRefined ? "active" : "";
 
-            //checks if the value is already selected or not
-            const facetValueClass = facet.isRefined ? "active" : "";
-            
-            const label = $("<tr>")
-              .data("facet", facet.name)
-              .attr("id", "fl-" + facet.name)
-              .attr('class', facetValueClass)
-              .append(starsTD)
-             
-            return label;
-          });
-        
+      const label = $("<tr>")
+        .data("facet", facet.name)
+        .attr("id", "fl-" + facet.name)
+        .attr("class", facetValueClass)
+        .append(starsTD);
+
+      return label;
+    });
+
     return starsList;
-});
+  });
 }
