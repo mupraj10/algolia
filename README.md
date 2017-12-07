@@ -14,7 +14,7 @@ You can find the completed project by clicking [here](https://mupraj10.github.io
   * I also added an attribute called `adjusted_stars` to get rounded stars value
 * Once the data manipulation is over, it sends over the data to the appropriate Algolia index
 
-* From the UI perspective: 
+Completed: 
   * Users can search for restaurants, cuisines, or location in the search bar and the appropriate results will be re-rendered and the matched text will be italicized.
   * Users can also filter their searches in which case the filtered item in the sidebar will be highlighted
   * Users have the option to select different food types/cuisines to isolate their search but only 1 rating option and payment option.
@@ -26,7 +26,7 @@ You can find the completed project by clicking [here](https://mupraj10.github.io
   * Users are able to click on the `reserve on open table` link to direct them to reserving a table at that restaurant. 
   * Users are able to use the website on multiple devices and it should be relatively responsive. 
 
-* In Progress
+* In Progress:
   * The sidebar is in a table format so getting the highlighting is not very nice looking at the moment.
   * I am still working on making the website more responsive by using more CSS. (maybe implement a library)
   * I began working on a back button to go back to results but haven't quite figured it out yet.
@@ -34,7 +34,7 @@ You can find the completed project by clicking [here](https://mupraj10.github.io
   * Stars on hits are rounded and not accurate to decimals
   * At the moment, facets are restricted return
 
-* Future (if I had more time)
+* Future (if I had more time):
   * Implementing if a user gives a location to render results based on that data
   * Viewing results on a map
   * Scrolling options for the food-types
