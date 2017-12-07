@@ -36,6 +36,7 @@ const formattedCSV = csvjson.toObject(csvData, options);
 
 //adjust the csv data to implement a new stars feature to get only 6 options
 const updatedCSV = [];
+
 formattedCSV.forEach(place => {
   let adjusted_stars = Math.round(+place.stars_count);
   const newPlace = Object.assign({}, place, { adjusted_stars });
