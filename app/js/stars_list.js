@@ -14,11 +14,15 @@ function renderStarsList(facetType, html_tag, content) {
 
             //creates the html list with the values
           starsList = $.map(sortedStars, facet => {
-    
+  
+            
+
             //adding in the stars images
             const stars = $("<img>")
               .attr('class', 'stars-count')
               .attr("src", `resources/graphics/${facet.name}-stars.png`);
+
+              const starsTD = $('<td>').append(stars)
 
             //checks if the value is already selected or not
             const facetValueClass = facet.isRefined ? "active" : "";
@@ -27,7 +31,7 @@ function renderStarsList(facetType, html_tag, content) {
               .data("facet", facet.name)
               .attr("id", "fl-" + facet.name)
               .attr('class', facetValueClass)
-              .append(stars)
+              .append(starsTD)
              
             return label;
           });

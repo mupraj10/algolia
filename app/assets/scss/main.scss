@@ -20,6 +20,7 @@ body{
   // border:5px solid grey;
   display:flex;
   background-color: white;
+  border-radius: 3px;
 }
 
 .search-box {
@@ -47,11 +48,18 @@ body{
   width: 100%;
 }
 
+.sidebar-active{
+  display:none;
+}
+
+.sidenav{
+  display:none;
+}
+
 .sidebar {
   padding: 20px;
   width: 200px;
   border-right:1px solid gray;
-  // float:left;
   h3{
     font-size: 15px;
   }
@@ -93,10 +101,32 @@ body{
   height:20px;
 }
 
-
 .results{
   padding: 20px 30px;
   width:100%;
+}
+
+
+.filter{
+  display:none;
+}
+
+.loading{
+  // display: block;
+  padding:100px;
+}
+.loader {
+  border: 10px solid #f3f3f3; 
+  border-top: 10px solid #31678b; 
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
 
 .stats-box{
@@ -107,14 +137,15 @@ body{
 .hit {
   padding-bottom: 35px;
   display: flex;
-
 }
 
 
 .hit-image{
   border-radius: 5px;
-  height:90px;
+  max-height:90px;
+  min-width:90px;
   width:90px;
+  object-fit: cover;
   margin-right:20px;
 }
 
@@ -123,16 +154,26 @@ body{
   margin: 0 0 .25em 0;
 }
 
+.hit-stars-box {
+  color:#f4af72;
 
-
+  span{
+    color:gray;
+  }
+}
 .hit-stars{
   height:15px;
+  margin-left:10px;
   margin-right:10px
 }
 
-// .hit-style{
-//   font-size:14px;
-// }
+.hit-style{
+  color:gray;
+}
+
+
+
+
 
 .buttons{
   text-align: center;
@@ -147,13 +188,9 @@ body{
   border-radius: 10px;
   
 }
-// .inner-section{
-//   background: white;
-//   margin: 80px;
-//   border: 1px;
-// }
 
-@media only screen and (max-width:800px) {
+
+@media only screen and (max-width:700px) {
   /* For mobile phones: */
 
   .inner-section{
@@ -163,11 +200,50 @@ body{
   .contents{
     display:block;
   }
-  
-  .sidebar{
+
+
+  .sidebar {
+    display:none; //removes orginial side bar
+  }
+
+  .sidebar-active{
     border-right:none;
     border-bottom: 1px solid gray;
-    width:100%
+    width:100%;
+
+    td{
+      padding: 12px 6px 
+    }
+  }
+
+  .sidenav {
+    height: 64%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 10%;
+    left: 0;
+    border-radius: 3px;
+    background-color: white;
+    overflow-x: hidden;
+    transition: 0.5s;
+}
+
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+  .filter{
+    height: 15%;
+    width: 100%;
+    text-align: center;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 10px;
   }
 
   .stars-count{
@@ -175,5 +251,9 @@ body{
   }
 }
 
+//add more space and make text bigger 
+// click handlers - filters 
 
+//make a class side-bar closed
+//display none 
 

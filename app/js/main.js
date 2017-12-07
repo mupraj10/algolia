@@ -81,7 +81,23 @@ $('#show-more').on('click', () =>{
   // $('.buttons').append(goBackButton);
 });
 
+$('#filter').on('click', () =>{
+  console.log('in on click')
+  $('.sidenav').css('width', '250px')
+  
+  helper.on("result", content => {
+    facetsList.forEach(facet =>
+      renderFacetList(facet.name, facet.html_tag, content)
+    );
+    renderStarsList('adjusted_stars', '#stars-list', content)
+  })
 
+})
+
+$('.closebtn').on('click', ()=> {
+  console.log('on close');
+  $('.sidenav').css('width', '0px')
+})
 
 helper.search();
 

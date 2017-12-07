@@ -18,16 +18,17 @@ body {
 /* line 19, app/assets/scss/main.scss */
 .contents {
   display: flex;
-  background-color: white; }
+  background-color: white;
+  border-radius: 3px; }
 
-/* line 25, app/assets/scss/main.scss */
+/* line 26, app/assets/scss/main.scss */
 .search-box {
   background-color: #31678b;
   padding: 15px;
   border-radius: 5px;
   box-shadow: 0 2px 3px rgba(10, 10, 10, 0.1), 0 0 0 1px rgba(10, 10, 10, 0.1); }
 
-/* line 31, app/assets/scss/main.scss */
+/* line 32, app/assets/scss/main.scss */
 .input {
   align-items: center;
   border: 1px solid transparent;
@@ -46,88 +47,133 @@ body {
   box-shadow: inset 0 1px 2px rgba(10, 10, 10, 0.1);
   width: 100%; }
 
-/* line 50, app/assets/scss/main.scss */
+/* line 51, app/assets/scss/main.scss */
+.sidebar-active {
+  display: none; }
+
+/* line 55, app/assets/scss/main.scss */
+.sidenav {
+  display: none; }
+
+/* line 59, app/assets/scss/main.scss */
 .sidebar {
   padding: 20px;
   width: 200px;
   border-right: 1px solid gray; }
-  /* line 55, app/assets/scss/main.scss */
+  /* line 63, app/assets/scss/main.scss */
   .sidebar h3 {
     font-size: 15px; }
-  /* line 58, app/assets/scss/main.scss */
+  /* line 66, app/assets/scss/main.scss */
   .sidebar tr {
     font-size: 15px; }
 
-/* line 63, app/assets/scss/main.scss */
+/* line 71, app/assets/scss/main.scss */
 .facet-list {
   list-style: none;
   display: inline-block;
   overflow: auto; }
 
-/* line 68, app/assets/scss/main.scss */
+/* line 76, app/assets/scss/main.scss */
 .facet-list div {
   padding-left: 12px; }
 
-/* line 71, app/assets/scss/main.scss */
+/* line 79, app/assets/scss/main.scss */
 .facet-list td {
   padding: 6px; }
 
-/* line 77, app/assets/scss/main.scss */
+/* line 85, app/assets/scss/main.scss */
 .facet-list .active .facet-name {
   border-radius: 5px 0 0 5px;
   background-color: #6392a8; }
 
-/* line 81, app/assets/scss/main.scss */
+/* line 89, app/assets/scss/main.scss */
 .facet-list .active .facet-count {
   border-radius: 0 5px 5px 0;
   background-color: #6392a8; }
 
-/* line 85, app/assets/scss/main.scss */
+/* line 93, app/assets/scss/main.scss */
 .facet-list .active .facet-payment {
   border-radius: 5px;
   background-color: #6392a8; }
 
-/* line 92, app/assets/scss/main.scss */
+/* line 100, app/assets/scss/main.scss */
 .stars-count {
   height: 20px; }
 
-/* line 97, app/assets/scss/main.scss */
+/* line 104, app/assets/scss/main.scss */
 .results {
   padding: 20px 30px;
   width: 100%; }
 
-/* line 102, app/assets/scss/main.scss */
+/* line 110, app/assets/scss/main.scss */
+.filter {
+  display: none; }
+
+/* line 114, app/assets/scss/main.scss */
+.loading {
+  padding: 100px; }
+
+/* line 118, app/assets/scss/main.scss */
+.loader {
+  border: 10px solid #f3f3f3;
+  border-top: 10px solid #31678b;
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  animation: spin 2s linear infinite; }
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg); }
+  100% {
+    transform: rotate(360deg); } }
+
+/* line 132, app/assets/scss/main.scss */
 .stats-box {
   padding: 20px;
   padding-left: 0px; }
 
-/* line 107, app/assets/scss/main.scss */
+/* line 137, app/assets/scss/main.scss */
 .hit {
   padding-bottom: 35px;
   display: flex; }
 
-/* line 114, app/assets/scss/main.scss */
+/* line 143, app/assets/scss/main.scss */
 .hit-image {
   border-radius: 5px;
-  height: 90px;
+  max-height: 90px;
+  min-width: 90px;
   width: 90px;
+  object-fit: cover;
   margin-right: 20px; }
 
-/* line 121, app/assets/scss/main.scss */
+/* line 152, app/assets/scss/main.scss */
 .hit-title {
   font-size: 17px;
   margin: 0 0 .25em 0; }
 
-/* line 128, app/assets/scss/main.scss */
+/* line 157, app/assets/scss/main.scss */
+.hit-stars-box {
+  color: #f4af72; }
+  /* line 160, app/assets/scss/main.scss */
+  .hit-stars-box span {
+    color: gray; }
+
+/* line 164, app/assets/scss/main.scss */
 .hit-stars {
   height: 15px;
+  margin-left: 10px;
   margin-right: 10px; }
 
-/* line 137, app/assets/scss/main.scss */
+/* line 170, app/assets/scss/main.scss */
+.hit-style {
+  color: gray; }
+
+/* line 178, app/assets/scss/main.scss */
 .buttons {
   text-align: center; }
 
-/* line 141, app/assets/scss/main.scss */
+/* line 182, app/assets/scss/main.scss */
 .show-more {
   padding: 15px 40px;
   text-align: center;
@@ -136,20 +182,53 @@ body {
   font-size: 16px;
   border-radius: 10px; }
 
-@media only screen and (max-width: 800px) {
+@media only screen and (max-width: 700px) {
   /* For mobile phones: */
-  /* line 159, app/assets/scss/main.scss */
+  /* line 196, app/assets/scss/main.scss */
   .inner-section {
     padding: 0; }
-  /* line 163, app/assets/scss/main.scss */
+  /* line 200, app/assets/scss/main.scss */
   .contents {
     display: block; }
-  /* line 167, app/assets/scss/main.scss */
+  /* line 205, app/assets/scss/main.scss */
   .sidebar {
+    display: none; }
+  /* line 209, app/assets/scss/main.scss */
+  .sidebar-active {
     border-right: none;
     border-bottom: 1px solid gray;
     width: 100%; }
-  /* line 173, app/assets/scss/main.scss */
+    /* line 214, app/assets/scss/main.scss */
+    .sidebar-active td {
+      padding: 12px 6px; }
+  /* line 219, app/assets/scss/main.scss */
+  .sidenav {
+    height: 64%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 10%;
+    left: 0;
+    border-radius: 3px;
+    background-color: white;
+    overflow-x: hidden;
+    transition: 0.5s; }
+  /* line 232, app/assets/scss/main.scss */
+  .sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px; }
+  /* line 240, app/assets/scss/main.scss */
+  .filter {
+    height: 15%;
+    width: 100%;
+    text-align: center;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 10px; }
+  /* line 249, app/assets/scss/main.scss */
   .stars-count {
     height: 30px; } }
 

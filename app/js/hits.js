@@ -1,4 +1,7 @@
 function renderHits(content) {
+  //adding in a loader for when 
+  $('#loading').hide();
+
   $("#results").html(() => {
     return $.map(content.hits, hit => {
 
@@ -23,6 +26,7 @@ function renderHits(content) {
       ).attr('class', 'hit-style')
 
       const starsBox = $('<p>')
+      .html(hit.stars_count)
       .attr('class', 'hit-stars-box')
       .append(stars)
       .append(reviews);

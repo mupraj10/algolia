@@ -39,20 +39,43 @@
           <div id="cc-list"></div>
 
         </div>
+
       </div>
+      <!-- for mobile only  -->
+      <div class='sidenav'>
+          <a href="javascript:void(0)" class="closebtn">&times;</a>
+          
+          <!-- sidebar for facets -->
+          <div id="facet-list" class='facet-list'>
+  
+            <h3> Cuisine/Food Type</h3>
+            <table id='food-list'></table>
+            <h3> Rating </h3>
+            <div id="stars-list"></div>
+            <h3> Payment Options</h3>
+            <div id="cc-list"></div>
+  
+          </div>
+  
+        </div>
+
 
       <!-- container for results -->
       <div class='results'>
-       
-            <divar name = value id='stats'></divar>
-      
-        
+        <!-- shows only if mobile -->
+       <button id='filter' class='filter'>Filters</button>
+
+       <div id='loading' class='loading'> 
+          <p> Finding Restaurants Near You!</p>
+          <div class="loader"> </div>
+       </div>
+          
+            <div name = value id='stats'></div>
             <div class='hits' id='results'></div>
             <div class='buttons'> 
-
-                <button id='show-more' class='show-more btn button'> Show more! </button>
+                <button id='show-more' class='show-more'> Show more! </button>
             </div>
-            
+        
       </div>
     </div>
   </div>
